@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Make Meme</title>
+</head>
+
+<body onload="onInit()">
+    <datalist id="wordsList">
+        <option value="baby" label="baby" />
+        <option value="politics" label="politics" />
+        <option value="films" label="films" />
+        <option value="funny" label="funny" />
+    </datalist>
+    <header>
+        <div class="logo">memegen</div>
+        <nav class="main-nav">
+            <ul>
+                <li class="hover list"><a class="list" href="#" onclick="onShowGallery()">Gallery</a></li>
+                <li class="hover"><a class="list" href="#" onclick="onShowSavedMemes()">Memes</a></li>
+                <li class="hover"><a class="list" href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="top-bar">
+        <input type="datalist" class="search" list="wordsList" onchange="onSubmitSearch(this.value)"
+           placeholder="search...">
+        <button class="flexible" onclick="onFlexible()">Im flexible</button>
+        <div class="keywords"></div>
+    </div>
+    <main class="container main-layout ">
+
+        <!-- <div class="grid"> -->
+            <section class="gallery-container">
+            </section>
+            <section class="saved-memes hide"></section>
+            <!-- <div class="grid"> -->
+                <div class="meme-layout">
+            <section class="meme-editor hide" id="hey">
+                <!-- <div class="canvas"> -->
+                    <canvas id="my-canvas" height="100%" width="100%">
+                    </canvas>
+                <!-- </div> -->
+            
+            <!-- </div> -->
+                <div class="btn-container">
+                    <!-- <label class="txt">Change text -->
+                    <input class="txt" type="text" placeholder="Type somthing..."
+                        oninput="setLineTxt(this.value)">
+                    <!-- </label> -->
+
+                    <input type="color" class="color" name="color" value="#ff0000" oninput="setColor(this.value)">
+
+                    <button class="btn increase" onclick="setIncreaseFont()"><img class="btn-img" src="icons/increase font - icon.png" alt=""></button>
+                    <button class="btn decrease" onclick="setDecreaseFont()"><img class="btn-img" src="icons/decrease font - icon.png" alt=""></button>
+                    <button class="btn switch" onclick="switchLine()"><img class="btn-img" src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                    <button class="btn add" onclick="addLine()"><img class="btn-img" src="icons/add.png" alt=""></button>
+                    <button class="btn delete" onclick="deleteLine()"><img class="btn-img" src="icons/trash.png" alt=""></button>
+                    <button class="btn left" onclick="alignToRight()"><img class="btn-img" src="icons/align-to-left.png" alt=""></button>
+                    <button class="btn center" onclick="alignToCenter()"><img class="btn-img" src="icons/center-text-alignment.png" alt=""></button>
+                    <button class="btn right" onclick="alignToLeft()"><img class="btn-img" src="icons/align-to-right.png" alt=""></button>
+                    <button class="btn stroke" onclick="changeTxtStroke()"><img class="btn-img" src="icons/text stroke.png" alt=""></button>
+                    <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+                    <select name="font" class="font">
+                        <option value="impact" label="impact" />
+                        <option value="arial" label="arial" />
+                        <option value="" label="impact" />
+                        <option value="impact" label="impact" />
+                    </select>
+                    <button class="btn save" onclick="onSaveMeme()">Save</button>
+                    <button class="btn upload" onclick="uploadImg()">Upload</button>
+                    <!-- <p class="user-msg"></p> -->
+                    <div class="emoji-container"></div>
+                    <div class="share-container"></div>
+                    <!-- <a href="#" onclick="onSaveMeme()" download="file-name">SAve</a> -->
+                    <a href="#" class="download" onclick="downloadCanvas(this)" download="file-name">Download</a>
+                    <!-- <button class="download" onclick="downloadCanvas(this)" download="file-name">Download</button> -->
+                </div>
+            </section>
+        <!-- </div> -->
+    </div>
+    </main>
+    <footer class="main-footer full main-layout middle">
+        <h1 class="footer-title">memegen</h1>
+        <p class="rights">© 2022 Memegen.com - All Rights Reserved - 2022</p>
+        <ul class="social-links">
+            <li class="footer-li"><a href="#" class="fa fa-facebook hover-link"></a></li>
+            <li class="footer-li"><a href="#" class="fa fa-twitter hover-link"></a></li>
+            <li class="footer-li"><a href="#" class="fa fa-linkedin hover-link"></a></li>
+            <li class="footer-li"><a href="#" class="fa fa-instagram hover-link"></a></li>
+        </ul>
+    </footer>
+    <script src="js/util.js"></script>
+    <script src="js/upload-service.js"></script>
+    <script src="js/storage-service.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/meme-controller.js"></script>
+    <!-- <script src="js/controller-service.js" ></script> -->
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
